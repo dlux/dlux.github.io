@@ -1,0 +1,40 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.require_version ">= 2.2.6"
+
+Vagrant.configure(2) do |config|
+
+  if Vagrant.has_plugin?("vagrant-vbguest")
+    config.vbguest.auto_update = false
+  end
+  if ENV['http_proxy'] != nil and ENV['https_proxy'] != nil and ENV['no_proxy'] != nil 
+    if not Vagrant.has_plugin?('vagrant-proxyconf')
+      system 'vagrant plugin install vagrant-proxyconf'
+      raise 'vagrant-proxyconf was installed but it requires to execute again'
+    end
+    config.proxy.http     = ENV['http_proxy']
+    config.proxy.https    = ENV['https_proxy']
+    config.proxy.no_proxy = ENV['no_proxy']
+  end
+
+  config.vm.box_check_update = false
+  config.vm.boot_timeout = 600
+  config.vm.network :forwarded_port, guest: 4000, host: 4000
+  config.vm.hostname = 'jekyllvm'
+
+  config.vm.box = 'ubuntu/jammy64'
+
+  config.vm.provider 'virtualbox' do |v|
+    v.memory = 4096 
+    v.cpus = 4
+  end
+  config.vm.provision 'shell' do |s|
+     s.path = 'jekyll_setup.sh'
+     s.privileged = false
+  end
+end
