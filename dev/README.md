@@ -1,19 +1,23 @@
 # steps to develop this site
 
-1. spin up ubuntu vagrant vm.
-2. Installing jekyll and its dependencies
+1. clone this repo
+
+```git clone https://github.com/dlux/dlux.github.io.git```
+
+2. spin up ubuntu vagrant vm. It installs jekyll and its dependencies
 
    ```
+     cd dlux.github.io/
      # echo Vagrantfile
      # echo jekyll_setup.sh
      vagrant up
      vagrant ssh
    ```
 
-2. clone this repo
 3. create initial jekyll structure
 
    ```
+     # clone project inside VM
      git clone https://github.com/dlux/dlux.github.io.git
      cd dlux.github.io/
      jekyll new --skip-bundle . --force
