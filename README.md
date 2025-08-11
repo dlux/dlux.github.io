@@ -21,7 +21,8 @@ personal blog
 ```
 
 podman run -it -e JEKYLL_ROOTLESS=1  -v $(pwd):/srv/jekyll  jekyll/jekyll   -- /bin/bash
-
+  >$$ chown -R jekyll /usr/gem/ &&  bundle update && bundle install
+  >$$ jekyll serve --trace
 ```
 
 ## Development
