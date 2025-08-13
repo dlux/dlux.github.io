@@ -29,6 +29,20 @@ sudo -E apt-get install -y nodejs npm
 # git clone https://github.com/dlux/dlux.github.io.git
 # pushd dlux.github.io
 # git submodule update --init --recursive
+
+
+## TEST AS GITHUB ACTIONS
+#
+#### from project root directory 
+#   ## ./tools/test.sh
+#### commands:
+#   export JEKYLL_ENV=production
+#   bundle exec jekyll b -d "_site"
+#   bundle exec htmlproofer _site --disable-external --ignore-urls http://127.0.0.1,http://0.0.0.0/,http://localhost/
+#
+
+## OTHERS
+# export JEKYLL_ENV=development
 # bundle
 # jekyll serve --host 0.0.0.0
 #
