@@ -1,8 +1,11 @@
 ---
 layout: post
 title:  "Welcome to dlux.github.io"
+description: welcome post
+author: Luz Cazares
 date:   2025-08-07 02:36:40 -0500
-categories: jekyll update
+tags: github jekyll
+categories: jekyll general
 ---
 
 This blog is an endeavor to share my development notes, methodologies, ideas, and experiences around software development, quality assurance, automation, continuous integration, cloud computing, AI, and more.

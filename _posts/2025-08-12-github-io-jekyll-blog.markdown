@@ -1,8 +1,11 @@
 ---
 layout: post
 title:  "Creating github.io blog with Jekyll"
-date:   2025-08-12 08:36:40 -0500
-categories: jekyll update
+description: create gihub pages blog
+author: Luz Cazares
+date:   2025-08-12 02:36:40 -0500
+tags: github jekyll
+categories: jekyll general
 ---
 
 <img src="/assets/2025/08/jekyll-01.png" alt="jekyll" style="width:40%;">
@@ -74,8 +77,8 @@ If you prefer to install jekyll and its dependencies on the linux system or a de
 
   ```
   ## 1. Download my example for Vagrantfile and jekyll_setup.sh
-    $ curl -LOk https://raw.githubusercontent.com/dlux/dlux.github.io/refs/heads/main/dev/Vagrantfile
-    $ curl -LOk https://raw.githubusercontent.com/dlux/dlux.github.io/refs/heads/main/dev/jekyll_setup.sh
+    $ curl -LOk https://raw.githubusercontent.com/dlux/dlux.github.io/refs/heads/main/.devvagrant/Vagrantfile
+    $ curl -LOk https://raw.githubusercontent.com/dlux/dlux.github.io/refs/heads/main/.devvagrant/jekyll_setup.sh
 
     # NOTE: update both files as needed (e.g. versions)
     $ cat Vagrantfile
@@ -99,7 +102,7 @@ If you prefer to install jekyll and its dependencies on the linux system or a de
   ![tree](/assets/2025/08/img1.jpg?raw=true "initial structure")
 
   ```
-  ## 4. follow the same steps as with podmain image:
+  ## 4. follow the same steps as with podman image:
   ### update files: _config.yml, Gemfile, about.markdown, _posts/2025...post1
     sed -i 's/^gem "jekyll"/# gem "jekyll"/g' Gemfile
     sed -i 's/^# gem "github-pages"/gem "github-pages"/g' Gemfile
