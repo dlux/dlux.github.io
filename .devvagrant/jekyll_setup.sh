@@ -13,7 +13,7 @@ sudo -E apt-get install -y ruby-full build-essential zlib1g-dev vim git curl tre
 echo -e "\n\nInstall Ruby Gems to ~/gems\n\n"
 echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
 echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
-echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="$PATH:'$(ruby -e 'puts Gem.user_dir')/bin\" >> ~/.bashrc
 source ~/.bashrc
 
 # Look for latest supported version for github pages
@@ -21,7 +21,6 @@ source ~/.bashrc
 echo -e "\n\ninstalling jekyl\n\n"
 echo "gem 'jekyll', '~> 3.9', '== 3.9.3'" > Gemfile
 /usr/bin/gem install jekyll bundler --user-install
-export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 
 # install nodejs
 sudo -E apt-get install -y nodejs npm

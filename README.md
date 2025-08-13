@@ -49,9 +49,10 @@ Assume linux host with podman installed:
 
     # On the container
     >$ chown -R jekyll /usr/gem/
+    >$ bundle
     >$ # bundle install
     >$ # bundle update
     >$ # jekyll build --destination "public"
-    >$ jekyll serve --trace
+    >$ jekyll serve --host 0.0.0.0 --trace
 ```
 
