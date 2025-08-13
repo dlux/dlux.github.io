@@ -64,7 +64,8 @@ analytics:
     id: dlux # fill in your GoatCounter ID
   umami:
     id: 39adc37f-09f5-4fb6-97a7-5d288af78c36 # fill in your Umami ID
-    domain: https://cloud.umami.is # fill in your Umami domain
+    domain: https://us.umami.is # fill in your Umami domain
+    #domain: https://cloud.umami.is # fill in your Umami domain
   matomo:
     id: # fill in your Matomo ID
     domain: # fill in your Matomo domain

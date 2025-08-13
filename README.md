@@ -1,8 +1,7 @@
 # dlux.github.io
 
-[![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;
-[![GitHub license](https://img.shields.io/github/license/saltstack/salt?color=blue)][lic]&nbsp;
-
+[![Build and Deploy](https://github.com/dlux/dlux.github.io/actions/workflows/pages-deploy.yml/badge.svg?branch=main)][ci]&nbsp;
+[![GitHub license](https://img.shields.io/github/license/saltstack/salt?color=goldenrod)][license]&nbsp;
 
 ## Overview
 
@@ -56,3 +55,5 @@ Assume linux host with podman installed:
     >$ jekyll serve --host 0.0.0.0 --trace
 ```
 
+[ci]: https://github.com/dlux/dlux.github.io/actions/workflows/pages-deploy.yml
+[license]: https://github.com/dlux/dlux.github.io/blob/master/LICENSE
