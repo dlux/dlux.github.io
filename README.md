@@ -1,38 +1,57 @@
 # dlux.github.io
 
-personal blog
+[![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;
+[![GitHub license](https://img.shields.io/github/license/saltstack/salt?color=blue)][lic]&nbsp;
 
 
+## Overview
 
+Personal blog built with Jekyll using the Chirpy theme.
 
-## Manual build
+- [**dlux.github.io**](https://dlux.github.io/)
 
-- Assume linux host with podman installed
+## Theme Source
 
-```
- podman image pull jekyll/jekyll
- podman run --rm -e JEKYLL_ROOTLESS=1 \
-   -v $(pwd):/srv/jekyll \
-   -it jekyll/jekyll \
-   sh -c "chown -R jekyll /usr/gem/ && jekyll new --skip-bundle . --force "
-```
+Chirpy:
 
-## Interactive Development
-```
+- [GitHub](https://github.com/cotes2020/jekyll-theme-chirpy)
+- [Example and tips/best practices](https://chirpy.cotes.page/)
+- **NOTE: Pull git submodules**
 
-podman run -it -e JEKYLL_ROOTLESS=1  -v $(pwd):/srv/jekyll  jekyll/jekyll   -- /bin/bash
-  >$$ chown -R jekyll /usr/gem/ &&  bundle update && bundle install
-  >$$ jekyll serve --trace
-```
-
-## Development
+## Building/ Testing Locally
 
 For local development, Jekyll can be run in server mode inside the container. It will watch for changes, rebuild the site, and provide access through its included web server. Check results by reloading http://localhost:4000/ in a browser.
 
+Assume linux host with podman installed:
+
 ```
- podman run --rm -e JEKYLL_ROOTLESS=1 \
-   -v $(pwd):/srv/jekyll \
-   --publish [::1]:4000:4000 \
-   -it jekyll/jekyll \
-   sh -c "chown -R jekyll /usr/gem/ &&  bundle install &&  jekyll serve --trace"
+  podman image pull jekyll/jekyll
+
+  # Build the site
+  podman run --rm -e JEKYLL_ROOTLESS=1 \
+      -v $(pwd):/srv/jekyll \
+      jekyll/jekyll \
+      sh -c "chown -R jekyll /usr/gem/ &&  bundle install"
+
+  # Serve the site locally (port 4000)
+  podman run --rm -e JEKYLL_ROOTLESS=1 \
+      -v $(pwd):/srv/jekyll \
+      --publish 4000:4000 \
+      jekyll/jekyll \
+      sh -c "chown -R jekyll /usr/gem/ &&  jekyll serve --trace"
+
+
+  # Interact with jekyll, extra debug (port 4010)
+  podman run -it -e JEKYLL_ROOTLESS=1 \
+      -v $(pwd):/srv/jekyll \
+      --publish 4010:4000 \
+      jekyll/jekyll -- /bin/bash
+
+    # On the container
+    >$ chown -R jekyll /usr/gem/
+    >$ # bundle install
+    >$ # bundle update
+    >$ # jekyll build --destination "public"
+    >$ jekyll serve --trace
 ```
+
